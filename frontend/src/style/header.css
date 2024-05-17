@@ -1,0 +1,20 @@
+.nav-menu-text
+{
+    
+    font-size: 1rem;
+    font-weight: 500;
+    color: #fff;
+    text-decoration: none;
+    margin: 0 1rem;
+    padding: 0.5rem 0;
+    transition: all 0.3s ease;
+
+}
+.nav-link{
+    
+    color: #575960;
+}
+.nav-link:hover{
+    color: #8e9098;
+}
+

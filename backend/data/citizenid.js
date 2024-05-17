@@ -1,0 +1,55 @@
+import bcrypt from "bcryptjs";
+const citizens = [
+  {
+    citizenid: "1234567a",
+    name: "rahul adhikari",
+    age: 20,
+    address: "lalitpur",
+    phone: "1234567892",
+    email: "rahul@gmail.com",
+    password: bcrypt.hashSync("123",10),
+    isaAdmin: true,
+  },
+  {
+    citizenid: "1234567b",
+    name: "pratyush dulal",
+    age: 20,
+    address: "kathmandu",
+    phone: "1234567890",
+    email: "pratyush@gmail.com",
+    password: bcrypt.hashSync("123",10),
+    isaAdmin: true,
+  },
+  {
+    citizenid: "1234567c",
+    name: "prastuti dulal",
+    age: 20,
+    address: "bhaktapur",
+    phone: "1234567891",
+    email: "prastuit@gmail.com",
+    password: bcrypt.hashSync("123",10),
+    isaAdmin: false,
+  },
+  {
+    citizenid: "1234567d",
+    name: "rushna adhikari",
+    age: 20,
+    address: "bhaktapur",
+    phone: "1234567892",
+    email: "rushna@gmail.com",
+    password: bcrypt.hashSync("123",10),
+    isaAdmin: false,
+  },
+  {
+    citizenid: "1234567e",
+    name: "shanta adhikari",
+    age: 20,
+    address: "bhaktapur",
+    phone: "1234567893",
+    email: "prastuit@gmail.com",
+    password: bcrypt.hashSync("123",10),
+    isaAdmin: false,
+  },
+];
+
+export default citizens;
