@@ -1,20 +1,13 @@
 import React from "react";
 import {
   MDBBadge,
-  MDBBtn,
   MDBTable,
-  MDBTableHead,
   MDBTableBody,
 } from "mdb-react-ui-kit";
 
 import {
   Container,
   Row,
-  Col,
-  Spinner,
-  Button,
-  Toast,
-  Table,
 } from "react-bootstrap";
 
 import { useSelector } from "react-redux";

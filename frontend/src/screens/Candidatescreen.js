@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Row, Col, Spinner, Button, Toast } from "react-bootstrap";
+import { Container, Row, Col, Spinner, Button} from "react-bootstrap";
 import Candidate from "../components/Candidate";
 import Message from "../components/Message";
 import {

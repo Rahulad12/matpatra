@@ -9,7 +9,6 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Homescreen from "./screens/Homescreen";
 import Loginscreen from "./screens/Loginscreen";
-import Error from "./screens/Errorpage";
 import {
   createBrowserRouter,
   RouterProvider,

@@ -22,18 +22,15 @@ const ProductEditScreen = () => {
 
   const {
     data: candidate,
-    isLoading,
-    error,
-    refetch,
   } = useGetCandidatesByIdQuery(candidateId);
 
-  const [updateCandidate, { isLoading: loadingUpdate }] =
+  const [updateCandidate, ] =
     useUpdateCandidateMutation();
 
-  const [uploadCandidateImage, { isLoading: loadingUpload }] =
+  const [uploadCandidateImage] =
     useUploadCandidateImageMutation();
 
-  const [updateSymbol, { isLoading: loadingSymbol }] =  useUpdateSymbolMutation();
+  const [updateSymbol] =  useUpdateSymbolMutation();
   
   const navigate = useNavigate();
 
