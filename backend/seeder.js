@@ -13,14 +13,14 @@ Database();
 const importData = async () => {
     try {
         await cititzen.deleteMany();
-        // await candidate.deleteMany();
+        await candidate.deleteMany();
         await cititzen.insertMany(citizens);
         // const adminUser = createdCitizen[0]._id;
         // const sampleCandidates = candidates.map((candidate) => {
         //     return { ...candidate, user: adminUser };
         // });
 
-        // await candidate.insertMany(candidates);
+        await candidate.insertMany(candidates);
 
         console.log("Data Imported!");
         process.exit();
