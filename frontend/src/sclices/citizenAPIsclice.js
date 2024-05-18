@@ -1,8 +1,15 @@
+// Desc: API slice for citizen
 import { CITIZEN_URL } from "../constants";
 import { apiSlice } from "./apiSlice";
 
 const citizenApiSlice = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
+
+    getCitizenById: builder.query({
+      query: (citizenId) => `${CITIZEN_URL}/${citizenId}`,
+      
+    }),
+
     Login: builder.mutation({
       query: (data) => ({
         url: `${CITIZEN_URL}/auth`,
@@ -35,14 +42,15 @@ const citizenApiSlice = apiSlice.injectEndpoints({
     }),
 
     logout: builder.mutation({
-      query: () => ({
+      query: (citizenId) => ({
         url: `${CITIZEN_URL}/logout`,
         method: "POST",
+        body: { citizenId }
       }),
     }),
   }),
 });
 
-export const { useLoginMutation, useVoteMutation,useDeleteCitizenMutation,useLogoutMutation } = citizenApiSlice;
+export const { useGetCitizenByIdQuery,useLoginMutation, useVoteMutation,useDeleteCitizenMutation,useLogoutMutation } = citizenApiSlice;
 
 export default citizenApiSlice;

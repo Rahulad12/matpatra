@@ -6,17 +6,24 @@ import { toast } from "react-toastify";
 import { useDispatch, useSelector } from "react-redux";
 import { useVoteMutation } from "../sclices/citizenAPIsclice";
 import { useDeleteCitizenMutation } from "../sclices/citizenAPIsclice";
-import { setCandidateCredentials, clearCandidateCredentials } from "../sclices/CandidateSlice";
+import { useGetCitizenByIdQuery } from "../sclices/citizenAPIsclice";
+import {
+  setCandidateCredentials,
+  clearCandidateCredentials,
+} from "../sclices/CandidateSlice";
 import { clearCredentials } from "../sclices/authSlice";
 
 
 const Voting = ({ candidate }) => {
-  
- 
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const { candidateInfo } = useSelector((state) => state.candidate);
   const { citizenInfo } = useSelector((state) => state.auth);
+
+  //getting citizen by id
+  const { data: citizens } = useGetCitizenByIdQuery(citizenInfo._id);
+  
+  
   const [updateVote, { isLoading: isVoting }] = useVoteMutation();
   const [deleteCitizen, { isLoading: isDeleting }] = useDeleteCitizenMutation();
 
@@ -34,14 +41,14 @@ const Voting = ({ candidate }) => {
     }
 
     try {
-      await updateVote({ candidateId});
+      await updateVote({ candidateId });
       dispatch(setCandidateCredentials(candidateId));
 
       // console.log(citizenInfo._id);
 
       // console.log(deleteCitizen({ citizenId: citizenInfo._id}));
 
-      await deleteCitizen({ citizenId: citizenInfo._id});
+      await deleteCitizen({ citizenId: citizens._id });
 
       dispatch(clearCredentials());
       dispatch(clearCandidateCredentials());

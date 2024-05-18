@@ -4,6 +4,7 @@ import Container from "react-bootstrap/Container";
 import { NavLink } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { useLogoutMutation } from "../sclices/citizenAPIsclice";
 import { logout } from "../sclices/authSlice";
 
@@ -13,17 +14,19 @@ const Header = () => {
   const { citizenInfo } = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
-  const navigate = useLogoutMutation();
+  const navigate = useNavigate();
 
   const [logoutApiCall] = useLogoutMutation();
 
   const logoutHandler = async () => {
     try {
-      await logoutApiCall().unwrap();
+  
+      await logoutApiCall({_id: citizenInfo._id});
       dispatch(logout())
-      navigate("/auth");
+      navigate("/");
     } catch (error) {
       console.log(error);
+      
     }
   };
 
