@@ -7,6 +7,7 @@ import {
   Col,
   Table,
   Image,
+  Spinner,
 } from "react-bootstrap";
 import { useState } from "react";
 import { toast } from "react-toastify";
@@ -28,7 +29,7 @@ const Homescreen = () => {
   };
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return <Spinner animation="border" variant="info" />;
   }
 
   if (error) {
