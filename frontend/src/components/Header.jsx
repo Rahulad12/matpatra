@@ -1,6 +1,6 @@
 import React from "react";
-import {  Nav, NavDropdown, Navbar } from "react-bootstrap";
-import Container from "react-bootstrap/Container";
+import { Nav, NavDropdown, Navbar } from "react-bootstrap";
+import { Container } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 
 import { useSelector, useDispatch } from "react-redux";
@@ -20,57 +20,64 @@ const Header = () => {
 
   const logoutHandler = async () => {
     try {
-  
-      await logoutApiCall({_id: citizenInfo._id});
-      dispatch(logout())
+      await logoutApiCall({ _id: citizenInfo._id });
+      dispatch(logout());
       navigate("/");
     } catch (error) {
       console.log(error);
-      
     }
   };
 
   return (
-    <Navbar bg="light" variant="dark" className="nav-menu-text">
+    <Navbar
+      bg="secondary"
+      variant="dark"
+      className="nav-bar nav-menu-text"
+      expand="lg"
+      collapseOnSelect
+      sticky="top"
+    >
       <Container>
-        <Navbar.Brand as={NavLink} to="/" className="text-secondary">
+        <Navbar.Brand as={NavLink} to="/" className="text-light">
           मत पत्र
         </Navbar.Brand>
-        <Nav className="mr-auto">
-          <Nav.Link as={NavLink} to="/" className="text-secondary">
-            Home
-          </Nav.Link>
-          <Nav.Link as={NavLink} to="/candidates" className="text-secondary">
-            Candidates
-          </Nav.Link>
-          <Nav.Link
-            as={NavLink}
-            to="/auth?redirect=/vote"
-            className="text-secondary"
-          >
-            Vote
-          </Nav.Link>
-
-          {citizenInfo ? (
-            <NavDropdown title={citizenInfo.name} id="basic-nav-dropdown">
-              <NavDropdown.Item as={NavLink} to="/profile">
-                Profile
-              </NavDropdown.Item>
-              <NavDropdown.Item  onClick={logoutHandler}>
-                Logout
-              </NavDropdown.Item>
-            </NavDropdown>
-          ) : (
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="ms-auto">
+            <Nav.Link as={NavLink} to="/" className="text-light">
+              Home
+            </Nav.Link>
+            <Nav.Link as={NavLink} to="/candidates" className="text-light">
+              Candidates
+            </Nav.Link>
             <Nav.Link
               as={NavLink}
               to="/auth?redirect=/vote"
-              className="text-secondary"
-              
+              className="text-light"
             >
-              Login
+              Vote
             </Nav.Link>
-          )}
-        </Nav>
+
+            {citizenInfo ? (
+              <NavDropdown title={citizenInfo.name} id="basic-nav-dropdown" variant="dark" > 
+                <NavDropdown.Item as={NavLink} to="/profile" >
+                  Profile
+                </NavDropdown.Item>
+                <NavDropdown.Item onClick={logoutHandler}>
+                  Logout
+                </NavDropdown.Item>
+              </NavDropdown>
+            ) : (
+              <Nav.Link
+                as={NavLink}
+                to="/auth?redirect=/vote"
+                className="text-secondary"
+              >
+                Login
+              </Nav.Link>
+            )}
+          </Nav>
+        </Navbar.Collapse>
       </Container>
     </Navbar>
   );

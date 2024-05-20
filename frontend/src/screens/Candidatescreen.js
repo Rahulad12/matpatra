@@ -7,7 +7,7 @@ import {
   useCreateCandidateMutation,
 } from "../sclices/candidateApisclice";
 import { toast } from "react-toastify";
-
+import "../style/candidates.css";
 import { useSelector } from "react-redux";
 
 const Candidatescreen = () => {
@@ -55,7 +55,7 @@ const Candidatescreen = () => {
       <>
         <h1 className="head-text">Candidates</h1>
 
-        <Container>
+        <Container className="content">
           {citizenInfo && citizenInfo.isAdmin && (
             <Button
               className="my-3 btn btn-dark btn-sm btn-block  text-end"

@@ -1,15 +1,15 @@
 import React from "react";
 import { Container, Card, Image } from "react-bootstrap";
 import { FaEdit } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 import "../style/candidates.css";
 import { useSelector } from "react-redux";
+
 const Candidate = ({ candidate }) => {
   const { citizenInfo } = useSelector((state) => state.auth);
   return (
-    <Container>
-      <Card className="my-3 p-3 rounded">
+    <Container >
+      <Card className="my-3 p-3 rounded card">
         <Link to={`/candidates/${candidate._id}`}>
           <Card.Img
             src={candidate.image}
@@ -19,9 +19,9 @@ const Candidate = ({ candidate }) => {
         </Link>
 
         <Card.Body>
-          <Link to={`/candidates/${candidate._id}`}>
+          <Link to={`/candidates/${candidate._id}`} className="c-name">
             <Card.Title as="div">
-              <strong>{candidate.name}</strong>
+              <strong >{candidate.name}</strong>
             </Card.Title>
           </Link>
 
@@ -34,7 +34,7 @@ const Candidate = ({ candidate }) => {
               src={candidate.symbol}
               alt={candidate.name}
               fluid
-              style={{ width: 40 }}
+              style={{ width: 40, height: 40}}
               className="mx-2"
             />
             <p>

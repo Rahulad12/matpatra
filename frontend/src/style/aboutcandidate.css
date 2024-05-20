@@ -1,0 +1,12 @@
+.candidate-image{
+    margin-top: 2rem;
+}
+.candidate-image:hover{
+    transform: scale(1.5);
+    transition: transform 0.5s;
+    cursor: pointer;
+
+}
+.about-candidate-screen{
+    margin-top: 2rem;
+}

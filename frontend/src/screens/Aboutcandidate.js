@@ -3,7 +3,7 @@ import { Container, Row, Col, Image, Button, Spinner } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useGetCandidatesByIdQuery } from "../sclices/candidateApisclice";
-
+import "../style/aboutcandidate.css"
 const Aboutcandidate = () => {
   const { id: candidateId } = useParams();
   const {
@@ -46,10 +46,10 @@ const Aboutcandidate = () => {
         Back to Candidates
       </Button>
 
-      <Container className="my-4">
+      <Container className="my-4 about-candidate-screen">
         <Row>
           <Col md={6}>
-            <Image src={candidates.image} alt={candidates.name} fluid />
+            <Image src={candidates.image} alt={candidates.name} fluid  className="candidate-image"/>
           </Col>
           <Col md={6}>
             <h2>{candidates.name}</h2>
@@ -65,12 +65,14 @@ const Aboutcandidate = () => {
             <Button variant="success" onClick={voteforcandidate}>
               Vote
             </Button>
+
+            <h3 className="my-4">No Vote</h3>
+            <span className="mx-4"><strong>{candidates.votes}</strong></span>
           </Col>
         </Row>
         <Row>
           <Col md={6}>
-            <h3 className="my-3">Votes:</h3>
-            <p style={{ display: "inline" }}>{candidates.votes}</p>
+            
           </Col>
         </Row>
       </Container>
