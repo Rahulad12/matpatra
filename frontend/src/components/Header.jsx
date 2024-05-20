@@ -71,7 +71,7 @@ const Header = () => {
               <Nav.Link
                 as={NavLink}
                 to="/auth?redirect=/vote"
-                className="text-secondary"
+                className="text-light"
               >
                 Login
               </Nav.Link>
